@@ -4,5 +4,5 @@ Para probar se puede usar el `Makefile`, con
 
 Dan las soluciones del ejemplo (`input2.txt`), pero se puede cambiar la fuente para obtener la respuesta en funcion de otro archivo, cambiendo `input2.txt` por `input.txt` o lo que sea, e introduciendo en ese archivo esa entrada
 # Lenguajes
-Esta escrito por ahora en 3 lenguajes: Rust, Python y JavaScript(NodeJS),
+Esta escrito por ahora en 3 lenguajes: Rust, Python y JavaScript(NodeJS),  
 por lo que hacen falta los comandos `cargo`, `python` y `node` para funcionar

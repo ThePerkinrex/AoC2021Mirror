@@ -1,20 +1,8 @@
 # ConcursoAoC2021
-## Enlaces importantes
+Para probar se puede usar el `Makefile`, con
+`make d$diap$parte` donde `$dia` se reemplaza por el numero de dia (0,1,2...) y `$parte` se reemplaza por la parte del problema (1,2).
 
-- [Crear *fork* de un repositorio](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
-- [Advent of Code](https://adventofcode.com/)
-
-## Recomendaciones
-### Manejo de archivos
-
-Como los problemas de cada día son independientes los unos de los otros, lo más recomendable es separar cada día en diferentes directorios, pero puedes usar la estructura de ficheros que más cómoda te resulte.
-
-Si usas Linux, el siguiente comando permite crear un directorio/carpeta para cada día una vez hayas creado el *fork* de este repositorio y hayas clonado el repositorio creado en tu ordenador.
-
-```
-mkdir Dia{01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25}
-```
-
-### Entrada/Salida
-
-Lo más recomendable para el manejo de la entrada de los problemas es guardar la entrada en un fichero de texto plano (txt), y, o pasarlo por la entarda estándar, o hacer que la solución implementada para el problema abra y lea el archivo.
+Dan las soluciones del ejemplo (`input2.txt`), pero se puede cambiar la fuente para obtener la respuesta en funcion de otro archivo, cambiendo `input2.txt` por `input.txt` o lo que sea, e introduciendo en ese archivo esa entrada
+# Lenguajes
+Esta escrito por ahora en 3 lenguajes: Rust, Python y JavaScript(NodeJS),
+por lo que hacen falta los comandos `cargo`, `python` y `node` para funcionar

@@ -7,6 +7,8 @@ d1p1:
 	(cd Dia01/d1p1/src && node main.js && cd ../../..) || echo NodeJS not installed
 	@echo ::: Java
 	(cd Dia01/d1p1/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia01/d1p1/src && dotnet run && cd ../../..) || echo dotnet not installed
 
 d1p2:
 	@echo ::: Rust
@@ -17,3 +19,5 @@ d1p2:
 	cd Dia01/d1p2/src && node main.js && cd ../../.. || echo NodeJS not installed
 	@echo ::: Java
 	(cd Dia01/d1p2/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia01/d1p2/src && dotnet run && cd ../../..) || echo dotnet not installed

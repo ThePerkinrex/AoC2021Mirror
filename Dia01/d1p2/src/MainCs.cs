@@ -7,7 +7,7 @@ namespace src
     {
         static void Main(string[] args)
         {
-            var lines = new List<string>(System.IO.File.ReadLines(@"..\..\input.txt"));
+            var lines = new List<string>(System.IO.File.ReadLines(@"../../input.txt"));
             var sum = 0;
             for (int i = 3; i < lines.Count; i++)
             {

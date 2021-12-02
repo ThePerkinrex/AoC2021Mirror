@@ -6,5 +6,5 @@ fn main() {
             (Some(n), if last.map(|x| x < n).unwrap_or(false) { 1 } else { 0 } + sum)
         }).1;
     
-        println!(">> {}", r);
+    println!(">> {}", r);
 }

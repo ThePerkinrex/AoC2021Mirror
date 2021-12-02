@@ -11,6 +11,8 @@ d1p1:
 	(cd Dia01/d1p1/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
 	@echo ::: C#
 	(cd Dia01/d1p1/src && dotnet run && cd ../../..) || echo dotnet not installed
+	@echo "::: Bash (Applied to example (expected 7), as it takes 20s to execute when applied to original input)"
+	(cd Dia01/d1p1/src && bash main.bash && cd ../../..) || echo Bash not installed
 
 d1p2:
 	@echo ::: Rust

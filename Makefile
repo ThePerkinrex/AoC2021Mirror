@@ -39,6 +39,8 @@ d2p1:
 	(cd Dia02/d2p1/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
 	@echo ::: C#
 	(cd Dia02/d2p1/src && dotnet run && cd ../../..) || echo dotnet not installed
+	@echo ::: V
+	(cd Dia02/d2p1/src && v run main.v || v.bat run main.v || v.exe run main.v && cd ../../..) || echo v not installed
 
 d2p2:
 	@echo ::: Rust
@@ -51,5 +53,7 @@ d2p2:
 	(cd Dia02/d2p2/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
 	@echo ::: C#
 	(cd Dia02/d2p2/src && dotnet run && cd ../../..) || echo dotnet not installed
+	@echo ::: V
+	(cd Dia02/d2p2/src && v run main.v || v.bat run main.v || v.exe run main.v && cd ../../..) || echo v not installed
 
 

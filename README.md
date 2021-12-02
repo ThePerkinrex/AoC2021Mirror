@@ -4,6 +4,6 @@ Para probar se puede usar el `Makefile`, con
 
 Dan las soluciones del ejemplo (`input2.txt`), pero se puede cambiar la fuente para obtener la respuesta en funcion de otro archivo, cambiendo `input2.txt` por `input.txt` o lo que sea, e introduciendo en ese archivo esa entrada
 # Lenguajes
-Esta escrito por ahora en 5 lenguajes: Rust, Python, JavaScript (NodeJS, normal y con JSFuck), Java, C# y Bash,  
-por lo que hacen falta los comandos `cargo`, `python`, `node`, `javac`, `java`, `dotnet` y `bash` para funcionar,
+Esta escrito por ahora en 5 lenguajes: Rust, Python, JavaScript (NodeJS, normal y con JSFuck), Java, C#, Bash y [V](https://vlang.io/),  
+por lo que hacen falta los comandos `cargo`, `python`, `node`, `javac`, `java`, `dotnet`, `bash` y el compilador de V (`v`, `v.bat` o `v.exe`) para funcionar,
 si falta alguno, ocurrira un error al ejecutar ese lenguaje, pero continuara con el resto

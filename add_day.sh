@@ -43,4 +43,4 @@ dotnet new console
 touch Main.java main.js main.py
 cd ../../..
 
-sed -i "$ s/.$/, \"$DIR\/d$1p1\", \"$DIR\/d$1p2\"]/" Cargo.toml
+sed -i "$ s/.$/,\n\t\"$DIR\/d$1p1\",\n\t\"$DIR\/d$1p2\"\n]/" Cargo.toml

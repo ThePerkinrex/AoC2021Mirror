@@ -6,4 +6,7 @@ members = [
 	"Dia02/d2p2", 
 	# "Dia03/d3p1",
 	# "Dia03/d3p2"
-	]
+	# ,
+	"Dia04/d4p1",
+	"Dia04/d4p2"
+]

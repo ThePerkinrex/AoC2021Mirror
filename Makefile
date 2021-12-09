@@ -58,28 +58,28 @@ d2p2:
 
 
 d3p1:
-	# @echo ::: Rust
-	# cargo run -p d3p1 -q || echo Rust not installed
+	@echo ::: Rust
+	cargo run -p d3p1 -q || echo Rust not installed
 	@echo ::: Python
 	cd Dia03/d3p1/src && python main.py && cd ../../.. || echo Python not installed
-	# @echo ::: JavaScipt
-	# cd Dia03/d3p1/src && node main.js && cd ../../.. || echo NodeJS not installed
-	# @echo ::: Java
-	# (cd Dia03/d3p1/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
-	# @echo ::: C#
-	# (cd Dia03/d3p1/src && dotnet run && cd ../../..) || echo dotnet not installed
+	@echo ::: JavaScipt
+	cd Dia03/d3p1/src && node main.js && cd ../../.. || echo NodeJS not installed
+	@echo ::: Java
+	(cd Dia03/d3p1/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia03/d3p1/src && dotnet run && cd ../../..) || echo dotnet not installed
 
 d3p2:
-	# @echo ::: Rust
-	# cargo run -p d3p2 -q || echo Rust not installed
+	@echo ::: Rust
+	cargo run -p d3p2 -q || echo Rust not installed
 	@echo ::: Python
 	cd Dia03/d3p2/src && python main.py && cd ../../.. || echo Python not installed
-	# @echo ::: JavaScipt
-	# cd Dia03/d3p2/src && node main.js && cd ../../.. || echo NodeJS not installed
-	# @echo ::: Java
-	# (cd Dia03/d3p2/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
-	# @echo ::: C#
-	# (cd Dia03/d3p2/src && dotnet run && cd ../../..) || echo dotnet not installed
+	@echo ::: JavaScipt
+	cd Dia03/d3p2/src && node main.js && cd ../../.. || echo NodeJS not installed
+	@echo ::: Java
+	(cd Dia03/d3p2/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia03/d3p2/src && dotnet run && cd ../../..) || echo dotnet not installed
 
 d4p1:
 	@echo ::: Rust

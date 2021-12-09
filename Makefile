@@ -131,3 +131,53 @@ d5p2:
 	(cd Dia05/d5p2/src && dotnet run && cd ../../..) || echo dotnet not installed
 
 
+d6p1:
+	@echo ::: Rust
+	cargo run -p d6p1 -q || echo Rust not installed
+	@echo ::: Python
+	cd Dia06/d6p1/src && python main.py && cd ../../.. || echo Python not installed
+	@echo ::: JavaScipt
+	cd Dia06/d6p1/src && node main.js && cd ../../.. || echo NodeJS not installed
+	@echo ::: Java
+	(cd Dia06/d6p1/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia06/d6p1/src && dotnet run && cd ../../..) || echo dotnet not installed
+
+d6p2:
+	@echo ::: Rust
+	cargo run -p d6p2 -q || echo Rust not installed
+	@echo ::: Python
+	cd Dia06/d6p2/src && python main.py && cd ../../.. || echo Python not installed
+	@echo ::: JavaScipt
+	cd Dia06/d6p2/src && node main.js && cd ../../.. || echo NodeJS not installed
+	@echo ::: Java
+	(cd Dia06/d6p2/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia06/d6p2/src && dotnet run && cd ../../..) || echo dotnet not installed
+
+
+d7p1:
+	@echo ::: Rust
+	cargo run -p d7p1 -q || echo Rust not installed
+	@echo ::: Python
+	cd Dia07/d7p1/src && python main.py && cd ../../.. || echo Python not installed
+	@echo ::: JavaScipt
+	cd Dia07/d7p1/src && node main.js && cd ../../.. || echo NodeJS not installed
+	@echo ::: Java
+	(cd Dia07/d7p1/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia07/d7p1/src && dotnet run && cd ../../..) || echo dotnet not installed
+
+d7p2:
+	@echo ::: Rust
+	cargo run -p d7p2 -q || echo Rust not installed
+	@echo ::: Python
+	cd Dia07/d7p2/src && python main.py && cd ../../.. || echo Python not installed
+	@echo ::: JavaScipt
+	cd Dia07/d7p2/src && node main.js && cd ../../.. || echo NodeJS not installed
+	@echo ::: Java
+	(cd Dia07/d7p2/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia07/d7p2/src && dotnet run && cd ../../..) || echo dotnet not installed
+
+

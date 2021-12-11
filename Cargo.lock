@@ -3,6 +3,14 @@
 version = 3
 
 [[package]]
+name = "d10p1"
+version = "0.1.0"
+
+[[package]]
+name = "d10p2"
+version = "0.1.0"
+
+[[package]]
 name = "d1p1"
 version = "0.1.0"
 
@@ -32,4 +40,44 @@ version = "0.1.0"
 
 [[package]]
 name = "d4p2"
+version = "0.1.0"
+
+[[package]]
+name = "d5p1"
+version = "0.1.0"
+
+[[package]]
+name = "d5p2"
+version = "0.1.0"
+
+[[package]]
+name = "d6p1"
+version = "0.1.0"
+
+[[package]]
+name = "d6p2"
+version = "0.1.0"
+
+[[package]]
+name = "d7p1"
+version = "0.1.0"
+
+[[package]]
+name = "d7p2"
+version = "0.1.0"
+
+[[package]]
+name = "d8p1"
+version = "0.1.0"
+
+[[package]]
+name = "d8p2"
+version = "0.1.0"
+
+[[package]]
+name = "d9p1"
+version = "0.1.0"
+
+[[package]]
+name = "d9p2"
 version = "0.1.0"

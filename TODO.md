@@ -6,4 +6,4 @@ d7 in !python
 d8 in !python
 d9 in !python
 d11 in !python
-d12 in !rust && !python
+d12 in Java && C#

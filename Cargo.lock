@@ -11,6 +11,22 @@ name = "d10p2"
 version = "0.1.0"
 
 [[package]]
+name = "d11p1"
+version = "0.1.0"
+
+[[package]]
+name = "d11p2"
+version = "0.1.0"
+
+[[package]]
+name = "d12p1"
+version = "0.1.0"
+
+[[package]]
+name = "d12p2"
+version = "0.1.0"
+
+[[package]]
 name = "d1p1"
 version = "0.1.0"
 

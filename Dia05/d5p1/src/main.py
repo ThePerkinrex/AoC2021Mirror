@@ -13,7 +13,7 @@ with open('../../input.txt') as f:
 			max_ver = y1
 		if y2 > max_ver:
 			max_ver = y2
-	print(max_hor, max_ver)
+	# print(max_hor, max_ver)
 	max_hor += 1
 	max_ver += 1
 	
@@ -35,8 +35,8 @@ with open('../../input.txt') as f:
 	count = 0
 	for y in range(len(m[0])):
 		for x in range(len(m)):
-			print('.' if m[x][y] == 0 else str(m[x][y]), end='')
+			# print('.' if m[x][y] == 0 else str(m[x][y]), end='')
 			if m[x][y] > 1:
 				count+=1
-		print()
+		# print()
 	print(count)

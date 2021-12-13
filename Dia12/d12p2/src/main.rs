@@ -1,4 +1,4 @@
-use std::{collections::HashMap};
+use std::collections::HashMap;
 
 fn possible_paths<'a>(
     node: &'a str,
@@ -24,20 +24,25 @@ fn possible_paths<'a>(
                 })
         });
     if can_visit_double {
-        i.chain(connections[node]
-            .iter()
-            .filter(|x| visited.contains(x) && x.to_uppercase() != x.to_string() && *x != &"start")
-            .flat_map(|x| {
-                // println!("{} {:?}", x, visited);
-                possible_paths(*x, connections, visited.clone(), false)
-                    .into_iter()
-                    .map(|mut x| {
-                        x.insert(0, node);
-                        // println!(">>> {:?}", x);
-                        x
-                    })
-            })).collect()
-    }else{
+        i.chain(
+            connections[node]
+                .iter()
+                .filter(|x| {
+                    visited.contains(x) && x.to_uppercase() != x.to_string() && *x != &"start"
+                })
+                .flat_map(|x| {
+                    // println!("{} {:?}", x, visited);
+                    possible_paths(*x, connections, visited.clone(), false)
+                        .into_iter()
+                        .map(|mut x| {
+                            x.insert(0, node);
+                            // println!(">>> {:?}", x);
+                            x
+                        })
+                }),
+        )
+        .collect()
+    } else {
         i.collect()
     }
 }

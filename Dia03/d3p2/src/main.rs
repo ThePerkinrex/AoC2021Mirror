@@ -1,3 +1,3 @@
-fn main(){
-	// TODO
+fn main() {
+    // TODO
 }

@@ -7,3 +7,4 @@ d8 in !python
 d9 in !python
 d11 in !python
 d12 in Java && C#
+d13 in !rust

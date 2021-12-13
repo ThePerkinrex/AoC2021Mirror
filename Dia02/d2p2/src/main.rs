@@ -6,16 +6,16 @@ fn main() {
         if l.starts_with("up") {
             // println!("U {:?}", &l[3..]);
             aim -= l[3..].parse::<isize>().unwrap();
-        }else if l.starts_with("down") {
+        } else if l.starts_with("down") {
             // println!("D {:?}", &l[5..]);
             aim += l[5..].parse::<isize>().unwrap();
-        }else{
+        } else {
             // println!("F {:?}", &l[8..]);
-            let x =  l[8..].parse::<isize>().unwrap();
+            let x = l[8..].parse::<isize>().unwrap();
             f += x;
-            d += aim*x;
+            d += aim * x;
         }
     }
 
-    println!(">>> {}", f*d);
+    println!(">>> {}", f * d);
 }

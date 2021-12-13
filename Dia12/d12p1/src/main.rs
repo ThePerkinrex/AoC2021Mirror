@@ -1,4 +1,4 @@
-use std::{collections::HashMap};
+use std::collections::HashMap;
 
 fn possible_paths<'a>(
     node: &'a str,
@@ -21,7 +21,8 @@ fn possible_paths<'a>(
                     // println!(">>> {:?}", x);
                     x
                 })
-        }).collect()
+        })
+        .collect()
 }
 
 fn main() {

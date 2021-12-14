@@ -43,11 +43,6 @@ with open('../../input.txt') as f:
 					if o2[j][x] == '1':
 						o2_counts[x] -= 1
 				del o2[j]
-				# currcount -= 1
-		# o2_counts[i] = currcount
-				# print("deleting", o2[j], "left:", len(co2))
-
-				# del o2[j]
 		currlen = len(co2)
 		currcounts = co2_counts.copy()
 		for j in range(len(co2)-1, -1, -1):

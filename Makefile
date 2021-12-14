@@ -1,4 +1,4 @@
-d1p1:
+d1p1: INTERCAL
 	@echo ::: Rust
 	cargo run -p d1p1 -q || echo Rust not installed
 	@echo ::: Python
@@ -13,6 +13,8 @@ d1p1:
 	(cd Dia01/d1p1/src && dotnet run && cd ../../..) || echo dotnet not installed
 	@echo "::: Bash (Applied to example (expected 7), as it takes 20s to execute when applied to original input)"
 	(cd Dia01/d1p1/src && bash main.bash && cd ../../..) || echo Bash not installed
+
+INTERCAL:
 	@echo "::: INTERCAL (Applied to example, expected 7)"
 	(cd Dia01/d1p1/src && ick main.i && cat ../../input2.txt | ./main +wimpmode && rm main && cd ../../..) || echo "INTERCAL (ick) not installed"
 

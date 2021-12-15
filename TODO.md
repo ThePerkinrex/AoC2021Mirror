@@ -1,4 +1,4 @@
-d3p2 in !python
+d3p2 in !python && !java
 d4 in !python
 d5 in !python
 d6 in !python
@@ -10,3 +10,4 @@ d12 in Java && C#
 d13 in !rust
 HALFWAY POINT, FROM HERE MULTIPLE LANGUAGES ARE OPTIONAL
 d14 in !rust
+d15 in !python

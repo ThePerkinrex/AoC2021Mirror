@@ -16,7 +16,6 @@ def path_risk(grid, path):
 def a_star(grid):
 	open_set = [(0,0)]
 	goal = (len(grid)-1, len(grid[0])-1)
-	closed_set = []
 	came_from = {}
 	g_score = [[math.inf for _ in range(goal[1]+1)] for _ in range(goal[0]+1)]
 	g_score[0][0] = 0

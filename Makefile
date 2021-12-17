@@ -410,3 +410,28 @@ d16p2:
 	(cd Dia16/d16p2/src && dotnet run && cd ../../..) || echo dotnet not installed
 
 
+d17p1:
+	@echo ::: Rust
+	cargo run -p d17p1 -q || echo Rust not installed
+	@echo ::: Python
+	cd Dia17/d17p1/src && python main.py && cd ../../.. || echo Python not installed
+	@echo ::: JavaScipt
+	cd Dia17/d17p1/src && node main.js && cd ../../.. || echo NodeJS not installed
+	@echo ::: Java
+	(cd Dia17/d17p1/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia17/d17p1/src && dotnet run && cd ../../..) || echo dotnet not installed
+
+d17p2:
+	@echo ::: Rust
+	cargo run -p d17p2 -q || echo Rust not installed
+	@echo ::: Python
+	cd Dia17/d17p2/src && python main.py && cd ../../.. || echo Python not installed
+	@echo ::: JavaScipt
+	cd Dia17/d17p2/src && node main.js && cd ../../.. || echo NodeJS not installed
+	@echo ::: Java
+	(cd Dia17/d17p2/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia17/d17p2/src && dotnet run && cd ../../..) || echo dotnet not installed
+
+

@@ -1,4 +1,4 @@
-fn main() {
+fn main() { // W.I.P
     let lines: Vec<_> = include_str!("../../input2.txt").lines().collect();
 
     let mut gamma = vec!["0"; lines[0].len()];

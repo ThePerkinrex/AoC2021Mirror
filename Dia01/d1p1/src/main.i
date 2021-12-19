@@ -1,6 +1,7 @@
         DO ,1 <- #255 $ #255
         DO WRITE IN ,1
 
+        PLEASE NOTE THIS ONLY WORKS FOR THE EXAMPLE, BUT CAN TRIVIALLY BE ADAPTED FOR THE INPUT
         PLEASE NOTE num = 0
         PLEASE NOTE i = 0
         PLEASE NOTE for char in file:

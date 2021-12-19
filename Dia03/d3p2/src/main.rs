@@ -1,5 +1,5 @@
-fn main() { // W.I.P
-    let lines: Vec<_> = include_str!("../../input2.txt").lines().collect();
+fn main() {
+    let lines: Vec<_> = include_str!("../../input.txt").lines().collect();
 
     let mut gamma = vec!["0"; lines[0].len()];
     let mut epsilon = vec!["1"; gamma.len()];
@@ -30,15 +30,20 @@ fn main() { // W.I.P
         let currcounts = o2_counts.clone();
         for j in (0..o2.len()).rev() {
             if o2.len() == 1 {
-                break
+                break;
             }
-            if (currcounts[i] >= currlen/2 && o2[j].chars().nth(i).unwrap() == '0') || (currcounts[i] < currlen/2 && o2[j].chars().nth(i).unwrap() == '1') {
+            if ((currcounts[i] as f64) >= (currlen as f64) / 2.
+                && o2[j].chars().nth(i).unwrap() == '0')
+                || ((currcounts[i] as f64) < (currlen as f64) / 2.
+                    && o2[j].chars().nth(i).unwrap() == '1')
+            {
                 for (x, c) in o2_counts.iter_mut().enumerate().take(o2[j].len()) {
                     if o2[j].chars().nth(x).unwrap() == '1' {
                         // println!(">> {}", x);
                         *c -= 1
                     }
                 }
+
                 o2.remove(j);
             }
         }
@@ -47,9 +52,13 @@ fn main() { // W.I.P
         let currcounts = co2_counts.clone();
         for j in (0..co2.len()).rev() {
             if co2.len() == 1 {
-                break
+                break;
             }
-            if (currcounts[i] >= currlen/2 && co2[j].chars().nth(i).unwrap() == '1') || (currcounts[i] < currlen/2 && co2[j].chars().nth(i).unwrap() == '0') {
+            if ((currcounts[i] as f64) >= (currlen as f64) / 2.
+                && co2[j].chars().nth(i).unwrap() == '1')
+                || ((currcounts[i] as f64) < (currlen as f64) / 2.
+                    && co2[j].chars().nth(i).unwrap() == '0')
+            {
                 for (x, c) in co2_counts.iter_mut().enumerate().take(co2[j].len()) {
                     if co2[j].chars().nth(x).unwrap() == '1' {
                         *c -= 1
@@ -59,6 +68,8 @@ fn main() { // W.I.P
             }
         }
     }
+    println!(" o2: {}", o2[0]);
+    println!("co2: {}", co2[0]);
     let o2 = usize::from_str_radix(o2[0], 2).unwrap();
     let co2 = usize::from_str_radix(co2[0], 2).unwrap();
     println!(" o2: {}", o2);

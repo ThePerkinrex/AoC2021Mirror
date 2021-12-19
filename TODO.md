@@ -1,4 +1,3 @@
-d3p2 in !python && !javascript
 d4 in !python
 d5 in !python
 d6 in !python

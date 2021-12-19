@@ -74,7 +74,7 @@ d3p1:
 	(cd Dia03/d3p1/src && dotnet run && cd ../../..) || echo dotnet not installed
 
 d3p2:
-	@echo ::: Rust W.I.P.
+	@echo ::: Rust
 	cargo run -p d3p2 -q || echo Rust not installed
 	@echo ::: Python
 	cd Dia03/d3p2/src && python main.py && cd ../../.. || echo Python not installed

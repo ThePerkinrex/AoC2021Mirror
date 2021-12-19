@@ -1,4 +1,4 @@
-with open('../../input2.txt') as f:
+with open('../../input.txt') as f:
 	lines = list(map(lambda x: x.strip(), f.readlines()))
 	gamma = '0' * len(lines[0].strip())
 	epsilon = '1' * len(gamma)
@@ -36,6 +36,7 @@ with open('../../input2.txt') as f:
 			if len(o2) == 1:
 				# print("exiting", o2)
 				break
+			
 			# print(i,o2)
 			if currcounts[i] >= currlen/2 and o2[j][i] == '0':
 				for x in range(len(o2[j])):

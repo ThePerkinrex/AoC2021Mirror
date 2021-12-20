@@ -4,14 +4,14 @@
 //     println!(">>{1:>>0$} {0}", max_depth, "");
 //     let mut res = HashMap::new();
 //     if max_depth != 0 {
-        
+
 //         for (r, l, c) in rules {
 //             if &right == r && &left == l {
 //                 let c = *c;
 //                 res.insert(c, 1);
 //                 apply_rules(rules, right, c, max_depth-1).into_iter().for_each(|(k,v)| {res.entry(k).and_modify(|x| *x += v).or_insert(v);});
 //                 apply_rules(rules, c, left, max_depth-1).into_iter().for_each(|(k,v)| {res.entry(k).and_modify(|x| *x += v).or_insert(v);});
-                
+
 //                 break;
 //             }
 //         }
@@ -31,7 +31,7 @@
 //         let x = (a.next().unwrap(), a.next().unwrap(), s.next().unwrap().chars().next().unwrap());
 //         rules.push(x);
 //     });
-    
+
 //     let mut counts = HashMap::new();
 //     let chars: Vec<_> = template.chars().collect();
 //     for i in 0..(chars.len()-1) {
@@ -61,12 +61,20 @@ fn main() {
 
     let mut adj = HashMap::new();
     let mut counts = HashMap::new();
-    for i in 0..(template.len()-1) {
-        adj.entry(template[i..(i+2)].to_string()).and_modify(|x| *x+=1).or_insert(1u64);
-        counts.entry(template[i..(i+1)].chars().next().unwrap()).and_modify(|x| *x+=1).or_insert(1);
+    for i in 0..(template.len() - 1) {
+        adj.entry(template[i..(i + 2)].to_string())
+            .and_modify(|x| *x += 1)
+            .or_insert(1u64);
+        counts
+            .entry(template[i..(i + 1)].chars().next().unwrap())
+            .and_modify(|x| *x += 1)
+            .or_insert(1);
     }
-    
-    counts.entry(template[(template.len()-1)..].chars().next().unwrap()).and_modify(|x| *x+=1).or_insert(1);
+
+    counts
+        .entry(template[(template.len() - 1)..].chars().next().unwrap())
+        .and_modify(|x| *x += 1)
+        .or_insert(1);
 
     for _ in 0..40 {
         let mut new_adj = HashMap::new();
@@ -76,18 +84,26 @@ fn main() {
             for (ini, res1, res2, ch) in &rules {
                 if &k == ini {
                     // println!("{} {} {}", res1, res2, v);
-                    new_adj.entry(res1.clone()).and_modify(|x| *x+=v).or_insert(v);
-                    new_adj.entry(res2.clone()).and_modify(|x| *x+=v).or_insert(v);
-                    counts.entry(*ch).and_modify(|x| *x+=v).or_insert(v);
+                    new_adj
+                        .entry(res1.clone())
+                        .and_modify(|x| *x += v)
+                        .or_insert(v);
+                    new_adj
+                        .entry(res2.clone())
+                        .and_modify(|x| *x += v)
+                        .or_insert(v);
+                    counts.entry(*ch).and_modify(|x| *x += v).or_insert(v);
                     break;
                 }
             }
         }
         adj = new_adj;
     }
-    
 
-    let (min, max) = (counts.values().min().unwrap(), counts.values().max().unwrap());
+    let (min, max) = (
+        counts.values().min().unwrap(),
+        counts.values().max().unwrap(),
+    );
     // println!("{} {}", min, max);
-    println!(">>> {}", max- min);
+    println!(">>> {}", max - min);
 }

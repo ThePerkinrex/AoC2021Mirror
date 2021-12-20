@@ -70,11 +70,17 @@ impl OperatorKind {
 impl Packet {
     fn parse(data: &[u8], start_bit: usize) -> (usize, Self) {
         let mut index = start_bit;
-        println!("Data left: {}", data[start_bit..].iter().map(|x| (*x + '0' as u8) as char).collect::<String>());
-        
+        println!(
+            "Data left: {}",
+            data[start_bit..]
+                .iter()
+                .map(|x| (*x + '0' as u8) as char)
+                .collect::<String>()
+        );
+
         println!("Reading version");
         let version = read_num(data, &mut index, 3) as u8;
-        
+
         println!("Reading type_id");
         let type_id = read_num(data, &mut index, 3) as u8;
         println!("Version: {}, Type ID: {}", version, type_id);
@@ -83,14 +89,13 @@ impl Packet {
             index += 1;
             let mut sections = Vec::new();
             while last_bit == 1 {
-                
                 println!("Reading section");
                 let n = read_num(data, &mut index, 4);
                 sections.push(n);
                 last_bit = data[index];
                 index += 1;
             }
-            
+
             println!("Reading last_section");
             let n = read_num(data, &mut index, 4);
             sections.push(n);
@@ -115,7 +120,7 @@ impl Packet {
                 let n_bits = read_num(data, &mut index, 15) as usize;
                 println!("{} bits to read from {} left", n_bits, data.len() - index);
                 let start = index;
-                while index < start+n_bits {
+                while index < start + n_bits {
                     println!("@>>>>>>>>>>>> {}", index);
                     let (new_idx, packet) = Packet::parse(data, index);
                     println!("@<<<<<<<<<<<<");
@@ -161,7 +166,11 @@ impl Packet {
 }
 
 fn read_num(data: &[u8], index: &mut usize, bit_size: u8) -> u16 {
-    println!("read_num: {} bits to read from {} left", bit_size, data.len() - *index);
+    println!(
+        "read_num: {} bits to read from {} left",
+        bit_size,
+        data.len() - *index
+    );
     let mut r = 0;
     for i in (0..bit_size).rev() {
         r |= (data[*index] as u16) << i as u16;

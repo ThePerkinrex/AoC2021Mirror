@@ -1,9 +1,9 @@
-use std::{str::FromStr, ops::Add};
+use std::{ops::Add, str::FromStr};
 
 #[derive(Debug)]
 enum Pair {
     Regular(usize),
-    Pair(Box<Pair>, Box<Pair>)
+    Pair(Box<Pair>, Box<Pair>),
 }
 
 impl FromStr for Pair {
@@ -14,22 +14,22 @@ impl FromStr for Pair {
             let mut left = "";
             let mut right = "";
             let mut count = 0;
-            for i in 1..(s.len()-1) {
+            for i in 1..(s.len() - 1) {
                 if &s[i..=i] == "[" {
                     count += 1;
-                }else if &s[i..=i] == "]" {
+                } else if &s[i..=i] == "]" {
                     count -= 1;
                 }
                 if count == 0 && &s[i..=i] == "," {
                     left = &s[1..i];
-                    right = &s[(i+1)..(s.len()-1)];
-                    break
+                    right = &s[(i + 1)..(s.len() - 1)];
+                    break;
                 }
             }
             let left = Pair::from_str(left)?;
             let right = Pair::from_str(right)?;
             Ok(Self::Pair(Box::new(left), Box::new(right)))
-        }else{
+        } else {
             Ok(Self::Regular(s.parse().unwrap()))
         }
     }
@@ -51,8 +51,8 @@ impl Pair {
             s = s1;
             if !b {
                 applied = false;
-            }else{
-                
+            } else {
+
                 // println!("Applied split: {}", s);
             }
         }
@@ -67,30 +67,33 @@ impl Pair {
     fn explode_aux(self, depth: usize) -> (Self, usize, usize, bool) {
         if depth >= 4 {
             match self {
-                Self::Pair(l, r) => match (l.as_ref(),r.as_ref()) {
-                    (Self::Regular(l), Self::Regular(r)) => (Self::Regular(0), *l,*r, true),
-                    _ => unreachable!("Unexpected pair of non regular numbers")
+                Self::Pair(l, r) => match (l.as_ref(), r.as_ref()) {
+                    (Self::Regular(l), Self::Regular(r)) => (Self::Regular(0), *l, *r, true),
+                    _ => unreachable!("Unexpected pair of non regular numbers"),
                 },
-                _ => (self, 0,0, false)
+                _ => (self, 0, 0, false),
             }
-        }else{
+        } else {
             match self {
                 Pair::Pair(l, mut r) => {
-                    let (mut l_exploded, ll, lr, has_exploded) = l.explode_aux(depth+1);
+                    let (mut l_exploded, ll, lr, has_exploded) = l.explode_aux(depth + 1);
                     if has_exploded {
                         r.add_to_leftmost(lr);
                         (Self::Pair(Box::new(l_exploded), r), ll, 0, true)
-                    }else{
-                        let (r_exploded, rl, rr, has_exploded) = r.explode_aux(depth+1);
+                    } else {
+                        let (r_exploded, rl, rr, has_exploded) = r.explode_aux(depth + 1);
                         l_exploded.add_to_rightmost(rl);
-                        (Self::Pair(Box::new(l_exploded), Box::new(r_exploded)), 0, rr, has_exploded)
+                        (
+                            Self::Pair(Box::new(l_exploded), Box::new(r_exploded)),
+                            0,
+                            rr,
+                            has_exploded,
+                        )
                     }
-                },
+                }
                 _ => (self, 0, 0, false),
-                
             }
         }
-        
     }
 
     fn add_to_leftmost(&mut self, n: usize) {
@@ -109,25 +112,31 @@ impl Pair {
 
     fn split(self) -> (Self, bool) {
         match self {
-            Self::Regular(x) if x >= 10 => (Self::Pair(Box::new(Self::Regular(x / 2)), Box::new(Self::Regular((x as f64 / 2f64).ceil() as usize))), true),
-            Self::Pair(l,r) => {
+            Self::Regular(x) if x >= 10 => (
+                Self::Pair(
+                    Box::new(Self::Regular(x / 2)),
+                    Box::new(Self::Regular((x as f64 / 2f64).ceil() as usize)),
+                ),
+                true,
+            ),
+            Self::Pair(l, r) => {
                 let (l, b) = l.split();
                 if b {
                     (Self::Pair(Box::new(l), r), b)
-                }else{
+                } else {
                     let (r, b) = r.split();
-                    
+
                     (Self::Pair(Box::new(l), Box::new(r)), b)
                 }
-            },
-            _ => (self, false)
+            }
+            _ => (self, false),
         }
     }
 
     fn magnitude(&self) -> usize {
         match self {
             Pair::Regular(x) => *x,
-            Pair::Pair(l, r) => l.magnitude()*3 + r.magnitude()*2,
+            Pair::Pair(l, r) => l.magnitude() * 3 + r.magnitude() * 2,
         }
     }
 }
@@ -147,10 +156,8 @@ impl std::fmt::Display for Pair {
             Pair::Regular(x) => write!(f, "{}", x),
             Pair::Pair(a, b) => write!(f, "[{},{}]", a, b),
         }
-        
     }
 }
-
 
 fn main() {
     // let file = r#"[[[0,[4,5]],[0,0]],[[[4,5],[2,6]],[9,5]]]
@@ -163,13 +170,13 @@ fn main() {
     // [1,[[[9,3],9],[[9,0],[0,7]]]]
     // [[[5,[7,4]],7],1]
     // [[[[4,2],2],6],[8,7]]"#;
-    let file =  include_str!("../../input.txt");
+    let file = include_str!("../../input.txt");
     let mut pairs = file.lines().map(|x| x.trim().parse::<Pair>().unwrap());
 
     let mut last = pairs.next().unwrap();
     for p in pairs {
         // println!("::: {}", last);
-        
+
         // println!(":::  + {}", p);
 
         last = last + p;

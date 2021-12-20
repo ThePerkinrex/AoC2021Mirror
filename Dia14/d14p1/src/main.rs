@@ -11,12 +11,12 @@ fn main() {
         rules.push((a, b));
     });
     // println!("{}", template);
-    
+
     for _ in 0..10 {
         let mut new_text = String::new();
         new_text += &template[..1];
-        for i in 0..(template.len()-1) {
-            let s = &template[i..(i+2)];
+        for i in 0..(template.len() - 1) {
+            let s = &template[i..(i + 2)];
             // println!(">> {}", s);
             for (cond, c) in &rules {
                 if *cond == s {
@@ -26,7 +26,6 @@ fn main() {
                 }
             }
             new_text += &s[1..];
-
         }
         template = new_text;
     }
@@ -35,6 +34,9 @@ fn main() {
         counts
     });
 
-    let (min, max) = (counts.values().min().unwrap(), counts.values().max().unwrap());
-    println!(">>> {}", max- min);
+    let (min, max) = (
+        counts.values().min().unwrap(),
+        counts.values().max().unwrap(),
+    );
+    println!(">>> {}", max - min);
 }

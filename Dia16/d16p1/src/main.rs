@@ -83,8 +83,12 @@ impl Packet {
                         read += 1;
                         7
                     });
-                    print!("{}", (((data.get(read)? & (1 << bit_pos)) >> bit_pos) as u16));
-                    len_packets |= (((data.get(read)? & (1 << bit_pos)) >> bit_pos) as u16) << i as u16;
+                    print!(
+                        "{}",
+                        (((data.get(read)? & (1 << bit_pos)) >> bit_pos) as u16)
+                    );
+                    len_packets |=
+                        (((data.get(read)? & (1 << bit_pos)) >> bit_pos) as u16) << i as u16;
                 }
 
                 println!();
@@ -108,8 +112,8 @@ impl Packet {
                             (read * 8 + bit_pos as usize - start) < len_packets as usize
                         );
                         packets.push(packet);
-                    }else{
-                        break
+                    } else {
+                        break;
                     }
                 }
                 bit_pos = bit_pos.checked_sub(1).unwrap_or_else(|| {
@@ -130,7 +134,8 @@ impl Packet {
                         read += 1;
                         7
                     });
-                    n_packets |= (((data.get(read)? & (1 << bit_pos)) >> bit_pos) as u16) << i as u16;
+                    n_packets |=
+                        (((data.get(read)? & (1 << bit_pos)) >> bit_pos) as u16) << i as u16;
                 }
                 println!("Have to parse {} packets", n_packets);
                 let mut packets = Vec::new();
@@ -145,7 +150,7 @@ impl Packet {
                             read -= 1;
                         }
                         packets.push(packet);
-                    }else{
+                    } else {
                         // panic!("No more bytes to read")
                     }
                 }

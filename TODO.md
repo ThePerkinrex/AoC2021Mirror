@@ -14,3 +14,5 @@ d16 in !rust
 d17 in !python
 d18 in !rust
 d19 in !python
+d20 in !rust
+d21 in !rust

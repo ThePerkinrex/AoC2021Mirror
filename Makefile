@@ -603,4 +603,31 @@ d22p2:
 	@# @echo ::: C#
 	@# (cd Dia22/d22p2/src && dotnet run && cd ../../..) || echo dotnet not installed
 
-all: d1p1 d1p2 d2p1 d2p2 d3p1 d3p2 d4p1 d4p2 d5p1 d5p2 d6p1 d6p2 d7p1 d7p2 d8p1 d8p2 d9p1 d9p2 d10p1 d10p2 d11p1 d11p2 d12p1 d12p2 d13p1 d13p2 d14p1 d14p2 d15p1 d15p2 d6p1 d6p2 d18p1 d18p2 d19p1 d19p2 d20p1 d20p2 d21p1 d21p2 d22p1 d22p2
+
+d23p1:
+	@echo -e "\n################# d23p1 #################"
+	@echo ::: Rust
+	cargo run -p d23p1 -q || echo Rust not installed
+	@echo ::: Python
+	cd Dia23/d23p1/src && python main.py && cd ../../.. || echo Python not installed
+	@echo ::: JavaScipt
+	cd Dia23/d23p1/src && node main.js && cd ../../.. || echo NodeJS not installed
+	@echo ::: Java
+	(cd Dia23/d23p1/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia23/d23p1/src && dotnet run && cd ../../..) || echo dotnet not installed
+
+d23p2:
+	@echo -e "\n################# d23p2 #################"
+	@echo ::: Rust
+	cargo run -p d23p2 -q || echo Rust not installed
+	@echo ::: Python
+	cd Dia23/d23p2/src && python main.py && cd ../../.. || echo Python not installed
+	@echo ::: JavaScipt
+	cd Dia23/d23p2/src && node main.js && cd ../../.. || echo NodeJS not installed
+	@echo ::: Java
+	(cd Dia23/d23p2/src && javac Main.java && java Main && rm Main.class && cd ../../..) || echo Java not installed
+	@echo ::: C#
+	(cd Dia23/d23p2/src && dotnet run && cd ../../..) || echo dotnet not installed
+
+all: d1p1 d1p2 d2p1 d2p2 d3p1 d3p2 d4p1 d4p2 d5p1 d5p2 d6p1 d6p2 d7p1 d7p2 d8p1 d8p2 d9p1 d9p2 d10p1 d10p2 d11p1 d11p2 d12p1 d12p2 d13p1 d13p2 d14p1 d14p2 d15p1 d15p2 d6p1 d6p2 d18p1 d18p2 d19p1 d19p2 d20p1 d20p2 d21p1 d21p2 d22p1 d22p2 d23p1 d23p2

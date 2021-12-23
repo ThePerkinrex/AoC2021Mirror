@@ -46,11 +46,17 @@ fn main() {
                 }
             }
             if !p1_mov.is_empty() {
-                positions.entry(p1_pos).and_modify(|x| x.extend(p1_mov.iter().copied())).or_insert(p1_mov);
+                positions
+                    .entry(p1_pos)
+                    .and_modify(|x| x.extend(p1_mov.iter().copied()))
+                    .or_insert(p1_mov);
             }
 
             if !p2_mov.is_empty() {
-                positions.entry(p2_pos).and_modify(|x| x.extend(p2_mov.iter().copied())).or_insert(p2_mov);
+                positions
+                    .entry(p2_pos)
+                    .and_modify(|x| x.extend(p2_mov.iter().copied()))
+                    .or_insert(p2_mov);
             }
         }
         // i+=1;

@@ -68,7 +68,7 @@ fn apply(index: &[bool], image: Image, debug: bool, on: bool) -> Image {
 // }
 
 fn main() {
-        // Por alguna rezon, el algoritmo para laa solucion no va para el ejemplo y viceversa
+    // Por alguna rezon, el algoritmo para laa solucion no va para el ejemplo y viceversa
 
     let mut lines = include_str!("../../input.txt").lines();
     let index = lines

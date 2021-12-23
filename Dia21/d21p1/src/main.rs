@@ -1,6 +1,6 @@
 struct DeterministicDie {
     current_pos: u8,
-    roll_count: usize
+    roll_count: usize,
 }
 
 impl DeterministicDie {
@@ -11,7 +11,10 @@ impl DeterministicDie {
 
 impl Default for DeterministicDie {
     fn default() -> Self {
-        Self { current_pos: 1, roll_count: 0 }
+        Self {
+            current_pos: 1,
+            roll_count: 0,
+        }
     }
 }
 
@@ -27,7 +30,7 @@ impl Die for DeterministicDie {
         self.current_pos = (self.current_pos + 1) % 100;
         if r == 0 {
             100
-        }else{
+        } else {
             r
         }
     }
@@ -38,7 +41,9 @@ impl Die for DeterministicDie {
 }
 
 fn main() {
-    let mut starting_pos = include_str!("../../input.txt").lines().map(|x| x.trim()[28..].parse::<u8>().unwrap());
+    let mut starting_pos = include_str!("../../input.txt")
+        .lines()
+        .map(|x| x.trim()[28..].parse::<u8>().unwrap());
     let mut player1_pos = starting_pos.next().unwrap();
     let mut player2_pos = starting_pos.next().unwrap();
     let mut die = DeterministicDie::new();
@@ -48,14 +53,14 @@ fn main() {
     while player2_points < 1000 {
         let movement: usize = (0..3).map(|_| die.next() as usize).sum();
         player1_pos = ((player1_pos as usize + movement) % 10) as u8;
-        player1_points += if player1_pos == 0 {10} else {player1_pos} as usize;
+        player1_points += if player1_pos == 0 { 10 } else { player1_pos } as usize;
         if player1_points >= 1000 {
             losing_points = player2_points;
-            break
+            break;
         }
         let movement: usize = (0..3).map(|_| die.next() as usize).sum();
         player2_pos = ((player2_pos as usize + movement) % 10) as u8;
-        player2_points += if player2_pos == 0 {10} else {player2_pos} as usize;
+        player2_points += if player2_pos == 0 { 10 } else { player2_pos } as usize;
         losing_points = player1_points;
     }
     println!(">>> {}", die.number_of_rolls() * losing_points);

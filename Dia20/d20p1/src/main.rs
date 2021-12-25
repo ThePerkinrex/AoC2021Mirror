@@ -6,7 +6,7 @@ fn get_or_default(image: &Image, x: isize, y: isize, on: bool) -> bool {
     image.contains(&(x, y)) == on
 }
 
-fn get_close(image: &Image, x: isize, y: isize, debug: bool, on: bool) -> usize {
+fn get_close(image: &Image, x: isize, y: isize, on: bool) -> usize {
     let mut res: usize = 0;
     let mut i: usize = 9;
     for y in (-1 + y)..=(1 + y) {
@@ -36,7 +36,7 @@ fn get_close(image: &Image, x: isize, y: isize, debug: bool, on: bool) -> usize 
     res
 }
 
-fn apply(index: &[bool], image: Image, debug: bool, on: bool) -> Image {
+fn apply(index: &[bool], image: Image, on: bool) -> Image {
     let mut new_image: Image = Default::default();
     let min_x = image.iter().map(|(x, _)| *x).min().unwrap();
     let max_x = image.iter().map(|(x, _)| *x).max().unwrap();
@@ -44,7 +44,7 @@ fn apply(index: &[bool], image: Image, debug: bool, on: bool) -> Image {
     let max_y = image.iter().map(|(_, y)| *y).max().unwrap();
     for y in (min_y - 10)..=(max_y + 10) {
         for x in (min_x - 10)..=(max_x + 10) {
-            let i = get_close(&image, x, y, debug, on);
+            let i = get_close(&image, x, y, on);
             let v = index[i];
             // print!("{}", if v != on {'#'} else {'.'});
             if v != on {
@@ -97,13 +97,13 @@ fn main() {
     // print_image(&image);
     // println!();
     println!("{}", image.len());
-    let image = apply(&index, image, false, true);
+    let image = apply(&index, image, true);
     // print_image(&image);
     println!();
     // println!("{}", image.iter().flat_map(|x| x.iter()).filter(|x| **x).count());
     println!("{}", image.len());
 
-    let image = apply(&index, image, false, false);
+    let image = apply(&index, image, false);
     // print_image(&image);
     println!();
     let count = image.len();

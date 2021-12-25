@@ -76,8 +76,10 @@ impl Packet {
             ))
         } else {
             let mode = data.get(read)? & (1 << bit_pos);
+            let mut len_packets: u16 = 0;
+
+            let mut packets = Vec::new();
             if mode == 0 {
-                let mut len_packets: u16 = 0;
                 for i in (0..15).rev() {
                     bit_pos = bit_pos.checked_sub(1).unwrap_or_else(|| {
                         read += 1;
@@ -94,7 +96,6 @@ impl Packet {
                 println!();
                 println!("Have to parse {} bits", len_packets);
                 let start = read * 8 + bit_pos as usize;
-                let mut packets = Vec::new();
                 while (read * 8 + bit_pos as usize - start) < len_packets as usize {
                     if let Some((bits_read, packet)) = Packet::parse(data, read, bit_pos) {
                         read = bits_read / 8;
@@ -120,13 +121,6 @@ impl Packet {
                     read += 1;
                     7
                 });
-                Some((
-                    (read * 8 + bit_pos as usize),
-                    Self {
-                        version,
-                        data: PacketData::Operator(mode, packets),
-                    },
-                ))
             } else {
                 let mut n_packets: u16 = 0;
                 for i in (0..11).rev() {
@@ -138,7 +132,6 @@ impl Packet {
                         (((data.get(read)? & (1 << bit_pos)) >> bit_pos) as u16) << i as u16;
                 }
                 println!("Have to parse {} packets", n_packets);
-                let mut packets = Vec::new();
                 for _ in 0..n_packets {
                     if let Some((bits_read, packet)) = Packet::parse(data, read, bit_pos) {
                         read = bits_read / 8;
@@ -158,14 +151,14 @@ impl Packet {
                     read += 1;
                     7
                 });
-                Some((
-                    (read * 8 + bit_pos as usize),
-                    Self {
-                        version,
-                        data: PacketData::Operator(mode, packets),
-                    },
-                ))
             }
+            Some((
+                (read * 8 + bit_pos as usize),
+                Self {
+                    version,
+                    data: PacketData::Operator(mode, packets),
+                },
+            ))
         }
     }
 

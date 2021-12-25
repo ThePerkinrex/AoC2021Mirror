@@ -74,7 +74,7 @@ impl Packet {
             "Data left: {}",
             data[start_bit..]
                 .iter()
-                .map(|x| (*x + '0' as u8) as char)
+                .map(|x| (*x + b'0') as char)
                 .collect::<String>()
         );
 
@@ -189,7 +189,7 @@ fn main() {
             let r = u8::from_str_radix(&s, 16).unwrap();
             format!("{:<04b}", r)
                 .chars()
-                .map(|x| (x as u8) - ('0' as u8))
+                .map(|x| (x as u8) - b'0')
                 .collect::<Vec<_>>()
                 .into_iter()
         })
